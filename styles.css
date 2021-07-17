@@ -1,10 +1,9 @@
 body {
-      background-color: #e6e1d4;
-      color: #ac3a3a;
+      background-color: #AB8E6D;
+      color: #000;
       font-family: Roboto, sans-serif;
       margin: 0px;
       overflow: hidden;
-      border: solid 1px #000;
     }
 
     .palette {
@@ -53,7 +52,7 @@ body {
     }
 
     .item {
-      background-color:aquamarine;
+      background-color:#AB8E6D;
       border: solid 1px #000;
     }
 
