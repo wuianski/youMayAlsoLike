@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>You May Also Like</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="node_modules/tb-grid/tb-grid.css" />
+</head>
+
+<body>
+  <div class="tb-grid tb-grid-gap-0">
+    <div class="item tb-grid-sm-3">
+      <div class="tb-grid tb-grid-gap-0">
+        <div class="item-no tb-grid-sm-12 height33 ov-hidden">
+          <video id="video" width="640" height="480" autoplay></video>
+          <button id="snap">You May Also Like</button>
+        </div>
+        <div class="item-no tb-grid-sm-12 height33">
+          <div class="tb-grid tb-grid-gap-0">
+            <div class="sub-item-trb tb-grid-sm-6 height16">
+              item1-2
+            </div>
+            <div class="sub-item-tb tb-grid-sm-6 height16">
+              item1-3
+            </div>
+            <div class="sub-item-rb tb-grid-sm-6 height16">
+              item1-4
+            </div>
+            <div class="sub-item-b tb-grid-sm-6 height16">
+              item1-5
+            </div>
+          </div>
+        </div>
+        <div class="item-no tb-grid-sm-12 height33">
+          item1-6
+        </div>
+      </div>
+    </div>
+    <div class="sub-item-tb tb-grid-sm-6">
+      <canvas id="canvas2" width="640" height="480"></canvas>
+      <ul class="palette"></ul>
+    </div>
+    <div class="item tb-grid-sm-3">
+      <div class="tb-grid tb-grid-gap-0">
+        <div class="item-no tb-grid-sm-12 height33">
+          <div class="tb-grid tb-grid-gap-0">
+            <div class="sub-item-rb tb-grid-sm-6 height16">
+              item3-1
+            </div>
+            <div class="sub-item-b tb-grid-sm-6 height16">
+              item3-2
+            </div>
+            <div class="sub-item-rb tb-grid-sm-6 height16">
+              item3-3
+            </div>
+            <div class="sub-item-b tb-grid-sm-6 height16">
+              item3-4
+            </div>
+          </div>
+        </div>
+        <div class="sub-item-b tb-grid-sm-12 height33">
+          item3-5
+        </div>
+        <div class="item-no tb-grid-sm-12 height33">
+          <div class="tb-grid tb-grid-gap-0">
+            <div class="sub-item-rb tb-grid-sm-6 height16">
+              item3-6
+            </div>
+            <div class="sub-item-b tb-grid-sm-6 height16">
+              item3-7
+            </div>
+            <div class="sub-item-r tb-grid-sm-6 height16">
+              item3-8
+            </div>
+            <div class="item-no tb-grid-sm-6 height16">
+              item3-9
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<script src="js/camera.js"></script>-->
+  <script src="palette_extractor.min.js"></script>
+  <script type="text/javascript">
+
+    const PALETTE_COLORS_COUNT = 5;
+    const IMAGE_MAX_WIDTH = 400;
+
+    const paletteElement = document.querySelector(".palette");
+    const paletteElements = [];
+    let i = 0;
+    while (i < PALETTE_COLORS_COUNT) {
+      const li = document.createElement('li');
+      paletteElement.appendChild(li);
+      paletteElements.push(li);
+      i++;
+    }
+
+    const paletteExtractor = new PaletteExtractor();
+
+    // Grab elements, create settings, etc.
+    var video = document.getElementById('video');
+
+    var canvas = document.createElement('canvas');
+    var canvasContext = canvas.getContext('2d');
+    document.body.appendChild(canvas);
+
+    // Get access to the camera!
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      // Not adding `{ audio: true }` since we only want video now
+      navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+      });
+    }
+
+    // Elements for taking the snapshot
+    var canvas2 = document.getElementById('canvas2');
+    var context = canvas2.getContext('2d');
+    //var video2 = document.getElementById('video2');
+
+    // Trigger photo take
+    document.getElementById("snap").addEventListener("click", function () {
+      canvasContext.drawImage(video, 0, 0, 640, 480);
+      context.drawImage(video, 0, 0, 640, 480);
+
+      const data =
+        canvasContext.getImageData(0, 0, 640, 480)
+          .data;
+      // Extracts the colors palette from image data.
+      const hexPalette =
+        paletteExtractor.processImageData(data, PALETTE_COLORS_COUNT);
+
+      let index = 0;
+      for (const paletteColorElem of paletteElements) {
+        paletteColorElem.style.backgroundColor = hexPalette[index];
+        index++;
+      }
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+body {
+      background-color: #e6e1d4;
+      color: #ac3a3a;
+      font-family: Roboto, sans-serif;
+      margin: 0px;
+      overflow: hidden;
+      border: solid 1px #000;
+    }
+
+    .palette {
+      width: 50vw;
+      height: 50px;
+      padding: 0;
+      margin: 0px;
+      position: absolute;
+      bottom: 0px;
+      z-index: 2;
+    }
+
+    .palette li {
+      display: block;
+      float: left;
+      width: 20%;
+      height: 100%;
+    }
+
+    canvas {
+      display: block;
+      width: 100vw;
+      margin-left: -25vw;
+      position: relative;
+      z-index: -1;
+    }
+
+    .ov-hidden{
+      display: block;
+      overflow: hidden;
+    }
+
+    #video {
+      height: auto;
+      position: relative;
+      left: -160px;
+    }
+
+    #snap {
+      position: absolute;
+      top: calc(33vh - 18vh);
+      left: calc(25vw - 19vw);
+      width: 12vw;
+      color: #fff;
+      background-color: #000;
+    }
+
+    .item {
+      background-color:aquamarine;
+      border: solid 1px #000;
+    }
+
+    .sub-item-trb{
+      border-top: solid 1px #000;
+      border-bottom: solid 1px #000;
+      border-right: solid 1px #000;
+    }
+    .sub-item-tb{
+      border-bottom: solid 1px #000;
+      border-top: solid 1px #000;
+    }
+    .sub-item-rb{
+      border-bottom: solid 1px #000;
+      border-right: solid 1px #000;
+    }
+    .sub-item-r{
+      border-right: solid 1px #000;
+    }
+    .sub-item-b{
+      border-bottom: solid 1px #000;
+    }
+    .item-no{
+      border: none;
+    }
+
+    .height33 {
+      height:33.3vh;
+    }
+
+    .height16 {
+      height:16.6vh;
+    }
