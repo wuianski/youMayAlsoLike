@@ -1,6 +1,6 @@
 function postHex(joinB) {
   //console.log(joinB);
-  const BaseUrl = "https://data.youmayalsolike.ml/";
+  const BaseUrl = "https://data.youmayalsolike.ml/"; //http://127.0.0.1:5000  //https://data.youmayalsolike.ml/
   const cameraPalette = `${joinB}`;
   const PaletteUrl = `${BaseUrl}/palette/${cameraPalette}?num=ˇ`;
 
