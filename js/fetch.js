@@ -4,13 +4,20 @@ function postHex(joinB) {
   const cameraPalette = `${joinB}`;
   const PaletteUrl = `${BaseUrl}/palette/${cameraPalette}?num=ˇ`;
 
+  /** show image **/
+  const showImage = (imgURLs, targetElement) => {
+    targetElement.style.backgroundImage = `url(${imgURLs})`;
+  };
+
   /** create palette divs **/
   const createColorElement = (hex) => {
     const block = document.createElement("div");
+    block.className = "sbox";
     block.style.backgroundColor = `#${hex}`;
-    block.style.width = "20px";
+    block.style.width = "20%";
     block.style.height = "20px";
-    block.style.margin = "0.25rem";
+    block.style.position = "relative";
+    block.style.bottom = "0px";
     return block;
   };
 
@@ -31,10 +38,17 @@ function postHex(joinB) {
           .split("-")
           .map((hex) => createColorElement(hex));
 
+        /*const newBlock = document.createElement("div");
+        targetElement.appendChild(newBlock);
+        newBlock.className = "nbox";*/
         /** clear palette divs **/
         targetElement.innerHTML = "";
         /** draw the new hex in to palette divs **/
         colorElements.forEach((ele) => targetElement.appendChild(ele));
+
+        /** get images url **/
+        const imgURLs = img.url;
+        showImage(imgURLs, targetElement);
       }
     );
   };
