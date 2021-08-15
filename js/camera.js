@@ -34,7 +34,7 @@
     var canvas2 = document.getElementById('canvas2');
     var context = canvas2.getContext('2d');
 
-    /**  Trigger photo take **/
+    /**  Trigger photo take by click screen button **/
     document.getElementById("snap").addEventListener("click", function () {
       canvasContext.drawImage(video, 0, 0, 640, 480);
       context.drawImage(video, 0, 0, 640, 480);
@@ -60,3 +60,33 @@
         index++;
       }
     });
+
+
+    /**  Trigger photo take by click mouse button on anywhere of screen **/
+    function WhichButton(event) {
+      if(event.button == 0){
+        canvasContext.drawImage(video, 0, 0, 640, 480);
+        context.drawImage(video, 0, 0, 640, 480);
+
+        const data = canvasContext.getImageData(0, 0, 640, 480).data;
+        /** Extracts the colors palette from image data. **/
+        const hexPalette = paletteExtractor.processImageData(
+          data,
+          PALETTE_COLORS_COUNT
+        );
+        //console.log(hexPalette)
+
+        /** combine 5 hex into a string for post to API (send to fetch.js) **/
+        let joinA = hexPalette.join("-");
+        let str = joinA.toString().split("#");
+        const joinB = str.join("");
+        postHex(joinB);
+
+        /** draw 5 hex on top of snapshot image **/
+        let index = 0;
+        for (const paletteColorElem of paletteElements) {
+          paletteColorElem.style.backgroundColor = hexPalette[index];
+          index++;
+        }
+      }
+    }

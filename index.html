@@ -13,12 +13,12 @@
 </head>
 
 <body>
-  <div class="tb-grid tb-grid-gap-0">
+  <div class="tb-grid tb-grid-gap-0" onmousedown="WhichButton(event)">
     <div class="item tb-grid-sm-3">
       <div class="tb-grid tb-grid-gap-0">
         <div class="item-no tb-grid-sm-12 height33 ov-hidden">
-          <video id="video" width="640" height="480" autoplay></video>
-          <button id="snap" class="button"><a href="#">You May Also Like</a></button>
+          <ul class="palette"></ul>
+          <canvas id="canvas2" width="640" height="480"></canvas>
         </div>
         <div class="item-no tb-grid-sm-12 height33">
           <div class="tb-grid tb-grid-gap-0">
@@ -47,8 +47,16 @@
       </div>
     </div>
     <div class="sub-item-tb tb-grid-sm-6">
-      <canvas id="canvas2" width="640" height="480"></canvas>
-      <ul class="palette"></ul>
+      <div id="description">
+        <p>By Pressing Button, <span class="italic">you may also like</span> identifies the characteristics of the viewer
+          through the camera, and
+          use these
+          characteristics to push other possibly relevant product images, which does exist on Facebook Ads library.</p>
+        <p>按下按鈕。<span class="italic">you may also like</span> 透過攝影機辨識使用者身上的特徵，並以此特徵來推播你可能會喜歡的商品圖片。推播圖片皆為存在於 Facebook 上的廣告圖片。
+        </p>
+      </div>
+      <video id="video" width="640" height="480" autoplay></video>
+      <button id="snap" class="button"><a href="#">You May Also Like</a></button>
     </div>
     <div class="item tb-grid-sm-3">
       <div class="tb-grid tb-grid-gap-0">
