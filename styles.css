@@ -51,7 +51,7 @@ body {
       width: 13vw;
       color: #fff;
       background-color: #000;
-      top: 85%;
+      top: 37%; /*85%*/
       left: 50%;
       transform: translate(-50%, -50%);
     }
@@ -183,7 +183,7 @@ body {
       position: absolute;
       display: block;
       width: 38vw;
-      top: 73%;
+      top: 78%; /*73%*/
       left: 50%;
       transform: translate(-50%, -50%);
       mix-blend-mode: difference;
