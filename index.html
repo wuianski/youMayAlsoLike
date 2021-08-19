@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<header>
   <meta charset="utf-8">
   <title>You May Also Like</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="node_modules/tb-grid/tb-grid.css" />
   <script src="palette_extractor.min.js"></script>
-</head>
+  <!-- Load tensorFlow js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2.11/dist/tf.min.js"></script>
+  <!-- Load BodyPix -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0.0/dist/body-pix.min.js"></script>
 
+</header>
 <body>
   <div class="tb-grid tb-grid-gap-0" onmousedown="WhichButton(event)">
-    <div class="item tb-grid-xs-3">
+    <div class="item tb-grid-xs-3" id="firstcol">
       <div class="tb-grid tb-grid-gap-0">
         <div class="item-no tb-grid-xs-12 height33 ov-hidden">
           <ul class="palette"></ul>
@@ -49,6 +53,7 @@
     <div class="sub-item-tb tb-grid-xs-6">
       <div id="descriptionBlock">
         <div id="videoBlock">
+          <canvas id="canvas" width="640" height="480"></canvas>
           <video id="video" width="640" height="480" autoplay></video>
           <button id="snap" class="button"><a href="#">You May Also Like</a></button>
         </div>
@@ -63,7 +68,7 @@
         </div>
       </div>
     </div>
-    <div class="item tb-grid-xs-3">
+    <div class="item tb-grid-xs-3" id="thirdcol">
       <div class="tb-grid tb-grid-gap-0">
         <div class="item-no tb-grid-xs-12 height33">
           <div class="tb-grid tb-grid-gap-0">
