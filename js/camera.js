@@ -28,9 +28,19 @@
         .then(function (stream) {
           video.srcObject = stream;
           video.play();
-          loadBodyPix();
         });
     }
+
+    video.addEventListener(
+      "loadeddata",
+      function () {
+        // 等 the event loaddata finished
+        loadBodyPix();
+      },
+      false
+    );
+
+  
 
     /** Elements for taking the snapshot **/
     var canvas2 = document.getElementById("canvas2");
