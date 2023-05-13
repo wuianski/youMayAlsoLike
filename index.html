@@ -17,14 +17,20 @@
 
 </header>
 <body>
+  <div id="pop1">
+    <div class="pop_img" id="pop1_img"></div>
+  </div>
   <div class="tb-grid tb-grid-gap-0" onmousedown="WhichButton(event)">
     <div class="item tb-grid-xs-3" id="firstcol">
       <div class="tb-grid tb-grid-gap-0">
-        <div class="item-no tb-grid-xs-12 height33 ov-hidden">
-          <ul class="palette"></ul>
-          <canvas id="canvas2" width="640" height="480"></canvas>
+        <div class="tb-grid-xs-12 height16 ov-hidden">
+          <div id="canvas2_container">
+            <ul class="palette"></ul>
+            <canvas id="canvas2" width="640" height="480" ></canvas>
+          </div>
         </div>
         <div class="item-no tb-grid-xs-12 height33">
+          <div class="ad_text">廣告</div>
           <div class="tb-grid tb-grid-gap-0">
             <div class="sub-item-trb tb-grid-xs-6 height16">
 
@@ -44,8 +50,8 @@
             </div>
           </div>
         </div>
-        <div class="item-no tb-grid-xs-12 height33 bTop">
-
+        <div class="item-no_bottom tb-grid-xs-12 height33 bTop">
+          <div class="ad_text">廣告</div>
           <div class="dataPalette"></div>
         </div>
       </div>
@@ -72,6 +78,7 @@
     <div class="item tb-grid-xs-3" id="thirdcol">
       <div class="tb-grid tb-grid-gap-0">
         <div class="item-no tb-grid-xs-12 height33">
+          <div class="ad_text">廣告</div>
           <div class="tb-grid tb-grid-gap-0">
             <div class="sub-item-rb tb-grid-xs-6 height16">
 
@@ -91,11 +98,12 @@
             </div>
           </div>
         </div>
-        <div class="sub-item-b tb-grid-xs-12 height33 bTop">
-
+        <div class="item-no_bottom sub-item-b tb-grid-xs-12 height33 bTop">
+          <div class="ad_text">廣告</div>
           <div class="dataPalette"></div>
         </div>
-        <div class="item-no tb-grid-xs-12 height33">
+        <div class="item-no_bottom tb-grid-xs-12 height33">
+          <div class="ad_text">廣告</div>
           <div class="tb-grid tb-grid-gap-0">
             <div class="sub-item-rb tb-grid-xs-6 height16">
 
@@ -109,7 +117,7 @@
 
               <div class="dataPalette"></div>
             </div>
-            <div class="item-no tb-grid-xs-6 height16">
+            <div class="tb-grid-xs-6 height16">
 
               <div class="dataPalette"></div>
             </div>
