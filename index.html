@@ -1,136 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<header>
-  <meta charset="utf-8">
-  <title>You May Also Like</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="node_modules/tb-grid/tb-grid.css" />
-  <script src="palette_extractor.min.js"></script>
-  <!-- Load tensorFlow js -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.8.0/dist/tf.min.js"></script>
-  <!-- Load BodyPix -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0.0/dist/body-pix.min.js"></script>
-
-</header>
-<body>
-  <div id="pop1">
-    <div class="pop_img" id="pop1_img"></div>
-  </div>
-  <div class="tb-grid tb-grid-gap-0" onmousedown="WhichButton(event)">
-    <div class="item tb-grid-xs-3" id="firstcol">
-      <div class="tb-grid tb-grid-gap-0">
-        <div class="tb-grid-xs-12 height16 ov-hidden">
-          <div id="canvas2_container">
-            <ul class="palette"></ul>
-            <canvas id="canvas2" width="640" height="480" ></canvas>
-          </div>
-        </div>
-        <div class="item-no tb-grid-xs-12 height33">
-          <div class="ad_text">廣告</div>
-          <div class="tb-grid tb-grid-gap-0">
-            <div class="sub-item-trb tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
-            <div class="sub-item-tb tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
-            <div class="sub-item-rb tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
-            <div class="sub-item-b tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
-          </div>
-        </div>
-        <div class="item-no_bottom tb-grid-xs-12 height33 bTop">
-          <div class="ad_text">廣告</div>
-          <div class="dataPalette"></div>
-        </div>
-      </div>
+  <header>
+    <meta charset="utf-8" />
+    <title>You May Also Like</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <link rel="icon" href="data:," />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="node_modules/tb-grid/tb-grid.css" />
+    <script src="palette_extractor.min.js"></script>
+    <!-- Load tensorFlow js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.8.0/dist/tf.min.js"></script>
+    <!-- Load BodyPix -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0.0/dist/body-pix.min.js"></script>
+  </header>
+  <body>
+    <div id="pop1">
+      <div class="pop_img" id="pop1_img"></div>
     </div>
-    <div class="sub-item-tb tb-grid-xs-6">
-      <div id="descriptionBlock">
-        <div id="videoBlock">
-          <canvas id="canvas" width="640" height="480"></canvas>
-          <video id="video" width="640" height="480" autoplay></video>
-          <button id="snap" class="button"><a href="#">You May Also Like</a></button>
-        </div>
-        <div id="description">
-          <p>By Pressing Button, <span class="italic">you may also like</span> identifies the characteristics of the viewer
-            through the camera, and
-            use these
-            characteristics to push other possibly relevant product images, which does exist on Facebook Ads library.</p>
-          <p>按下按鈕。<span class="italic">you may also like</span> 透過攝影機辨識使用者身上的特徵，並以此特徵來推播你可能會喜歡的商品圖片。推播圖片皆為存在於 Facebook
-            上的廣告圖片。
-          </p>
-          <p>Browser support : Firefox, Chrome</p>
-        </div>
-      </div>
-    </div>
-    <div class="item tb-grid-xs-3" id="thirdcol">
-      <div class="tb-grid tb-grid-gap-0">
-        <div class="item-no tb-grid-xs-12 height33">
-          <div class="ad_text">廣告</div>
-          <div class="tb-grid tb-grid-gap-0">
-            <div class="sub-item-rb tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
-            <div class="sub-item-b tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
-            <div class="sub-item-rb tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
-            <div class="sub-item-b tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
+    <div class="tb-grid tb-grid-gap-0" onmousedown="WhichButton(event)">
+      <div class="item tb-grid-xs-3" id="firstcol">
+        <div class="tb-grid tb-grid-gap-0">
+          <div class="tb-grid-xs-12 height16 ov-hidden">
+            <div id="canvas2_container">
+              <ul class="palette"></ul>
+              <canvas id="canvas2" width="640" height="480"></canvas>
             </div>
           </div>
-        </div>
-        <div class="item-no_bottom sub-item-b tb-grid-xs-12 height33 bTop">
-          <div class="ad_text">廣告</div>
-          <div class="dataPalette"></div>
-        </div>
-        <div class="item-no_bottom tb-grid-xs-12 height33">
-          <div class="ad_text">廣告</div>
-          <div class="tb-grid tb-grid-gap-0">
-            <div class="sub-item-rb tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
+          <div class="item-no tb-grid-xs-12 height33">
+            <div class="ad_text">廣告</div>
+            <div class="tb-grid tb-grid-gap-0">
+              <div class="sub-item-trb tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+              <div class="sub-item-tb tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+              <div class="sub-item-rb tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+              <div class="sub-item-b tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
             </div>
-            <div class="sub-item-b tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
-            <div class="sub-item-r tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
-            <div class="tb-grid-xs-6 height16">
-
-              <div class="dataPalette"></div>
-            </div>
+          </div>
+          <div class="item-no_bottom tb-grid-xs-12 height33 bTop">
+            <div class="ad_text">廣告</div>
+            <div class="dataPalette"></div>
           </div>
         </div>
       </div>
+      <div class="sub-item-tb tb-grid-xs-6">
+        <div id="descriptionBlock">
+          <div id="videoBlock">
+            <canvas id="canvas" width="640" height="480"></canvas>
+            <video id="video" width="640" height="480" autoplay></video>
+            <button id="snap" class="button">
+              <a href="#">You May Also Like</a>
+            </button>
+          </div>
+          <div id="description">
+            <p>
+              By Pressing Button,
+              <span class="italic">you may also like</span> identifies the
+              characteristics of the viewer through the camera, and use these
+              characteristics to push other possibly relevant product images,
+              which does exist on Facebook Ads library.
+            </p>
+            <p>
+              按下按鈕。<span class="italic">you may also like</span>
+              透過攝影機辨識使用者身上的特徵，並以此特徵來推播你可能會喜歡的商品圖片。推播圖片皆為存在於
+              Facebook 上的廣告圖片。
+            </p>
+            <p>Browser support : Firefox, Chrome</p>
+          </div>
+        </div>
+      </div>
+      <div class="item tb-grid-xs-3" id="thirdcol">
+        <div class="tb-grid tb-grid-gap-0">
+          <div class="item-no tb-grid-xs-12 height33">
+            <div class="ad_text">廣告</div>
+            <div class="tb-grid tb-grid-gap-0">
+              <div class="sub-item-rb tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+              <div class="sub-item-b tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+              <div class="sub-item-rb tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+              <div class="sub-item-b tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+            </div>
+          </div>
+          <div class="item-no_bottom sub-item-b tb-grid-xs-12 height33 bTop">
+            <div class="ad_text">廣告</div>
+            <div class="dataPalette"></div>
+          </div>
+          <div class="item-no_bottom tb-grid-xs-12 height33">
+            <div class="ad_text">廣告</div>
+            <div class="tb-grid tb-grid-gap-0">
+              <div class="sub-item-rb tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+              <div class="sub-item-b tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+              <div class="sub-item-r tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+              <div class="tb-grid-xs-6 height16">
+                <div class="dataPalette"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  <!--<script src="main.js"></script>-->
-  <script src="js/camera.js"></script>
-  <script src="js/fetch.js"></script>
 
-</body>
-
+    <!--<script src="main.js"></script>-->
+    <script src="js/camera.js"></script>
+    <script src="js/fetch.js"></script>
+  </body>
 </html>
