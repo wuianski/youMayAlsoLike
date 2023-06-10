@@ -22,18 +22,33 @@
   </header>
   <body>
     <div id="pop1">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
       <div class="pop_img" id="pop1_img"></div>
+    </div>
+    <div id="pop2">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <div class="pop_img" id="pop2_img"></div>
+    </div>
+    <div id="pop3">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <div class="pop_img" id="pop3_img"></div>
+    </div>
+    <div id="pop4">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <div class="pop_img" id="pop4_img"></div>
     </div>
     <div class="tb-grid tb-grid-gap-0" onmousedown="WhichButton(event)">
       <div class="item tb-grid-xs-3" id="firstcol">
         <div class="tb-grid tb-grid-gap-0">
-          <div class="tb-grid-xs-12 height16 ov-hidden">
+          <div class="item-no tb-grid-xs-12 height33 ov-hidden">
             <div id="canvas2_container">
               <ul class="palette"></ul>
               <canvas id="canvas2" width="640" height="480"></canvas>
             </div>
+            <div class="ad_text">Ad.</div>
+            <div class="dataPalette"></div>
           </div>
-          <div class="item-no tb-grid-xs-12 height33">
+          <div class="item-no_bottom tb-grid-xs-12 height33">
             <div class="ad_text">Ad.</div>
             <div class="tb-grid tb-grid-gap-0">
               <div class="sub-item-trb tb-grid-xs-6 height16">
@@ -50,7 +65,7 @@
               </div>
             </div>
           </div>
-          <div class="item-no_bottom tb-grid-xs-12 height33 bTop">
+          <div class="item-no_bottom tb-grid-xs-12 height34 bTop">
             <div class="ad_text">Ad.</div>
             <div class="dataPalette"></div>
           </div>
@@ -61,6 +76,8 @@
           <div id="videoBlock">
             <canvas id="canvas" width="640" height="480"></canvas>
             <video id="video" width="640" height="480" autoplay></video>
+          </div>
+          <div>
             <button id="snap" class="button">
               <a href="#">You May Also Like</a>
             </button>
@@ -78,7 +95,7 @@
               透過攝影機辨識使用者身上的特徵，並以此特徵來推播你可能會喜歡的商品圖片。推播圖片皆為存在於
               Facebook 上的廣告圖片。
             </p>
-            <p>Browser support : Firefox, Chrome</p>
+            <p id="bs">Browser support : Firefox, Chrome, Safari</p>
           </div>
         </div>
       </div>
@@ -101,7 +118,7 @@
               </div>
             </div>
           </div>
-          <div class="item-no_bottom sub-item-b tb-grid-xs-12 height33 bTop">
+          <div class="item-no_bottom sub-item-b tb-grid-xs-12 height34 bTop">
             <div class="ad_text">Ad.</div>
             <div class="dataPalette"></div>
           </div>

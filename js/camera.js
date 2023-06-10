@@ -1,3 +1,7 @@
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const PALETTE_COLORS_COUNT = 5;
 const IMAGE_MAX_WIDTH = 400;
 
@@ -31,9 +35,13 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 video.addEventListener(
   "loadeddata",
-  function () {
+  async function () {
     // 等 the event loaddata finished
     loadBodyPix();
+    console.log("load Body Pix");
+    await sleep(2000);
+    console.log("hi!");
+    WhichButton();
   },
   false
 );
@@ -46,7 +54,7 @@ var tempState = false;
 
 /**  Trigger photo take by click mouse button on anywhere of screen **/
 function WhichButton(event) {
-  if (event.button == 0) {
+  // if (event.button == 0) {
     tempState = true;
     //ctx.drawImage(video, 0, 0, 640, 480);
     context.drawImage(canvas, 0, 0, 640, 480);
@@ -71,7 +79,7 @@ function WhichButton(event) {
       paletteColorElem.style.backgroundColor = hexPalette[index];
       index++;
     }
-  }
+  // }
 }
 
 function loadBodyPix() {
@@ -91,8 +99,10 @@ async function perform(net) {
     const segmentation = await net.segmentPerson(video);
     const coloredPartImage = bodyPix.toMask(segmentation);
     const opacity = 1;
-    const flipHorizontal = false;
+    const flipHorizontal = true;
     const maskBlurAmount = 0;
+    // const backgroundBlurAmount = 3;
+    // const edgeBlurAmount = 3;
     // Draw the mask image on top of the original image onto a canvas.
     // The colored part image will be drawn semi-transparent, with an opacity of
     // 0.7, allowing for the original image to be visible under.
@@ -102,7 +112,9 @@ async function perform(net) {
       coloredPartImage,
       opacity,
       maskBlurAmount,
-      flipHorizontal
+      flipHorizontal,
+      // backgroundBlurAmount,
+      // edgeBlurAmount
     );
   }
 }

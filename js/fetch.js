@@ -9,10 +9,12 @@ function postHex(joinB) {
     targetElement.style.backgroundImage = `url(${imgURLs})`;
   };
   /** show image **/
-  // const showMyImage = (imgURLs, myTargetElement) => {
-  //   myTargetElement.style.backgroundImage = `url(${imgURLs})`;
-  //   // myTargetElement.style.background = `#fff`;
-  // };
+  const showMyImage = (imgURLs, myTargetElement) => {
+    myTargetElement.style.backgroundImage = `url(${imgURLs})`;
+    myTargetElement.style.backgroundRepeat = `no-repeat`;
+    myTargetElement.style.backgroundSize = `contain`;
+    myTargetElement.style.backgroundPosition = `center`;
+  };
 
   /** create palette divs **/
   const createColorElement = (hex) => {
@@ -20,9 +22,9 @@ function postHex(joinB) {
     block.className = "sbox";
     block.style.backgroundColor = `#${hex}`;
     block.style.width = "20%";
-    block.style.height = "20px";
+    block.style.height = "10px";
     block.style.position = "relative";
-    block.style.bottom = "0px";
+    block.style.bottom = "5px";
     return block;
   };
 
@@ -32,7 +34,6 @@ function postHex(joinB) {
       return;
     }
     const dataPaletteElements = document.querySelectorAll("div.dataPalette");
-    // const myDataPaletteElements = document.getElementById("pop1_img");
     const appliedImages = images.slice(0, dataPaletteElements.length);
     appliedImages.forEach(
       /** @param {{file_name: string, palette: string, url: string}} img */ (
@@ -40,26 +41,73 @@ function postHex(joinB) {
         idx
       ) => {
         const targetElement = dataPaletteElements[idx];
-        // const myTargetElement = myDataPaletteElements;
+
         const colorElements = img.palette
           .split("-")
           .map((hex) => createColorElement(hex));
 
-        /*const newBlock = document.createElement("div");
-        targetElement.appendChild(newBlock);
-        newBlock.className = "nbox";*/
         /** clear palette divs **/
         targetElement.innerHTML = "";
-        // myTargetElement.innerHTML = "";
         /** draw the new hex in to palette divs **/
         colorElements.forEach((ele) => targetElement.appendChild(ele));
 
         /** get images url **/
         const imgURLs = img.url;
         showImage(imgURLs, targetElement);
-        // showMyImage(imgURLs, myTargetElement);
       }
     );
+    /* pop up test */
+    const myDataPaletteElements = document.getElementById("pop1_img");
+    showMyImage(images[15].url, myDataPaletteElements);
+    const popParent1 = document.getElementById("pop1");
+    popParent1.style.display = `block`;
+    popParent1.animate([
+      // key frames
+      { left: '-300px' },
+      { left: '0px' }
+    ], {
+      // sync options
+      duration: 1000,
+    });
+    /* pop up test */
+    const myDataPaletteElements2 = document.getElementById("pop2_img");
+    showMyImage(images[16].url, myDataPaletteElements2);
+    const popParent2 = document.getElementById("pop2");
+    popParent2.style.display = `block`;
+    popParent2.animate([
+      // key frames
+      { top: '-300px' },
+      { top: '0px' }
+    ], {
+      // sync options
+      duration: 1000,
+    });
+    /* pop up test */
+    const myDataPaletteElements3 = document.getElementById("pop3_img");
+    showMyImage(images[17].url, myDataPaletteElements3);
+    const popParent3 = document.getElementById("pop3");
+    popParent3.style.display = `block`;
+    popParent3.animate([
+      // key frames
+      { bottom: '-300px' },
+      { bottom: '0px' }
+    ], {
+      // sync options
+      duration: 1000,
+    });
+    /* pop up test */
+    const myDataPaletteElements4 = document.getElementById("pop4_img");
+    showMyImage(images[18].url, myDataPaletteElements4);
+    const popParent4 = document.getElementById("pop4");
+    popParent4.style.display = `block`;
+    popParent4.animate([
+      // key frames
+      { right: '-300px' },
+      { right: '0px' }
+    ], {
+      // sync options
+      duration: 1000,
+    });
   };
 
   /** get data from API, then pass value to 'applyImages' **/

@@ -41,7 +41,6 @@ canvas {
 .item {
   background-color: #000;
   /* border: solid 1px #000; */
-  /* border: 1px solid #fff; */
 }
 
 .sub-item-trb {
@@ -65,20 +64,24 @@ canvas {
 }
 .item-no {
   /* border: none; */
-  /* border-top: 1px solid #fff;
-      border-left: 1px solid #fff;
-      border-right: 1px solid #fff; */
   border: 1px solid #fff;
 }
 .item-no_bottom {
-  /* border: none; */
   border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+.item-no_top {
+  border-top: 1px solid #fff;
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
 }
 
 .height33 {
   height: 33vh;
+}
+.height34 {
+  height: 33.6vh;
 }
 
 .height16 {
@@ -117,7 +120,7 @@ canvas {
 #videoBlock {
   display: block;
   height: 50vh;
-  margin-top: 10vh;
+  margin-top: 16.5vh;
 }
 #video {
   position: relative;
@@ -132,7 +135,7 @@ canvas {
   width: 16vw;
   color: #fff;
   background-color: #000;
-  top: -50vh;
+  top: -16vh; /*-30vh*/
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -146,7 +149,7 @@ canvas {
   font-weight: lighter;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 8vh;
+  margin-top: -13vh;
   text-align: justify;
 }
 .italic {
@@ -158,16 +161,36 @@ canvas {
   z-index: 10;
   /* border: 1px solid #fff; */
 }
-
+/*** pop up related ***/
+.closebtn {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 999;
+  mix-blend-mode: difference;
+  border: 1px solid #fff;
+}
 #pop1 {
-  display: none;
+  display: block;
   width: 25%;
   height: 100vh;
   position: absolute;
   left: 0;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 998;
+  animation-name: mymove;
+  animation-duration: 1s;
+  /* animation-delay: 2s; */
+  /* animation-timing-function:linear;
+  animation-fill-mode: backwards; */
+}
+@keyframes mymove {
+  from {left: -300px;}
+  to {left: 0px;}
 }
 #pop1_img {
   display: block;
@@ -176,9 +199,89 @@ canvas {
   position: absolute;
   left: calc(50% - 100px);
   top: calc(50% - 100px);
-  object-fit: contain;
-  /* background-color: blue; */
 }
+#pop2 {
+  display: block;
+  width: 50%;
+  height: 200px;
+  position: absolute;
+  left: calc(50% - 25%);
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 998;
+  animation-name: mymoveTop;
+  animation-duration: 1s;
+  /* animation-delay: 2s; */
+  /* animation-timing-function:linear;
+  animation-fill-mode: backwards; */
+}
+@keyframes mymoveTop {
+  from {top: -300px;}
+  to {top: 0px;}
+}
+#pop2_img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+}
+#pop3 {
+  display: block;
+  width: 50%;
+  height: 200px;
+  position: absolute;
+  left: calc(50% - 25%);
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 998;
+  animation-name: mymoveBottom;
+  animation-duration: 1s;
+  /* animation-delay: 2s; */
+  /* animation-timing-function:linear;
+  animation-fill-mode: backwards; */
+}
+@keyframes mymoveBottom {
+  from {bottom: -300px;}
+  to {bottom: 0px;}
+}
+#pop3_img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+}
+#pop4 {
+  display: block;
+  width: 25%;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 998;
+  animation-name: mymoveRight;
+  animation-duration: 1s;
+  /* animation-delay: 2s; */
+  /* animation-timing-function:linear;
+  animation-fill-mode: backwards; */
+}
+@keyframes mymoveRight {
+  from {right: -300px;}
+  to {right: 0px;}
+}
+#pop4_img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+}
+
 #canvas2_container {
   display: none;
 }
@@ -191,6 +294,9 @@ canvas {
 }
 #thirdcol {
   padding-right: 1px;
+}
+#bs{
+  font-size: 12px;
 }
 
 @media (max-width: 768px) {
@@ -208,5 +314,11 @@ canvas {
   }
   #description {
     margin-top: -10vh;
+  }
+  canvas {
+    top: 40%;
+  }
+  #bs{
+    font-size: 8px;
   }
 }
